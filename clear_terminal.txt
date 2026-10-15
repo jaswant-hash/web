@@ -1,0 +1,3 @@
+Set-PSReadLineOption -HistorySaveStyle SaveNothing
+Clear-History
+Remove-Item (Get-PSReadLineOption).HistorySavePath -Force -ErrorAction SilentlyContinue

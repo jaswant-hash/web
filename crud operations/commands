@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS college;
+USE college;
+
+CREATE TABLE IF NOT EXISTS students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  department VARCHAR(50) NOT NULL,
+  year INT NOT NULL
+);
+
+INSERT INTO students (name, department, year) VALUES
+  ('Arun', 'CSE', 4),
+  ('Priya', 'IT', 3),
+  ('Karthik', 'ECE', 2);
+
+
+
+== for server.js
+  npm init -y
+  npm install mysql2 cors express
+  node server.js
+
+== app.jxs
+
+npm create vite@latest client -- --template react
+cd client
+npm install
+npm run dev

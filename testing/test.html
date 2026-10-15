@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test App</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #f4f6fb; }
+  .card { max-width: 480px; margin: auto; background: #fff; padding: 20px;
+          border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+  h2 { margin-top: 0; color: #2c3e50; }
+  button { padding: 10px 18px; font-size: 16px; border: 0; border-radius: 6px;
+           background: #4a6fa5; color: #fff; cursor: pointer; }
+  button:hover { background: #35547f; }
+  input { padding: 9px; font-size: 16px; width: 60%; box-sizing: border-box; }
+  .row { margin: 16px 0; }
+  #greeting { color: #1b7f3b; font-weight: bold; margin-top: 8px; }
+  #layout { font-size: 14px; color: #555; margin-top: 16px; }
+  /* Responsive layout */
+  @media (max-width: 767px) {
+    .card { padding: 12px; }
+    input { width: 100%; margin-bottom: 8px; }
+    button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2 id="heading">Selenium Test App</h2>
+
+    <!-- Keep this as the FIRST button so css=button targets it -->
+    <div class="row">
+      <button id="clickBtn" onclick="alert('Button Clicked!')">Click Me</button>
+    </div>
+
+    <div class="row">
+      <label for="nameInput">Enter your name:</label><br>
+      <input type="text" id="nameInput" placeholder="Your name">
+      <button id="greetBtn" onclick="greet()">Show Greeting</button>
+      <div id="greeting"></div>
+    </div>
+
+    <div id="layout"></div>
+  </div>
+
+<script>
+  function greet() {
+    var name = document.getElementById('nameInput').value.trim();
+    document.getElementById('greeting').textContent =
+      name ? 'Hello, ' + name + '!' : 'Please enter your name';
+  }
+  function showLayout() {
+    var w = window.innerWidth, mode;
+    if (w < 768) mode = 'Mobile view';
+    else if (w < 1024) mode = 'Tablet view';
+    else mode = 'Desktop view';
+    document.getElementById('layout').textContent =
+      mode + ' (width: ' + w + 'px)';
+  }
+  window.addEventListener('resize', showLayout);
+  showLayout();
+</script>
+</body>
+</html>

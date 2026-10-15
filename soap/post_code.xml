@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:ws="http://example.com/students">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <ws:addStudentRequest>
+      <ws:name>Jazzy</ws:name>
+      <ws:email>jazzy@example.com</ws:email>
+      <ws:department>CSE</ws:department>
+      <ws:year>4</ws:year>
+    </ws:addStudentRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

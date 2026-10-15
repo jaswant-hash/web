@@ -1,0 +1,11 @@
+=== 
+npm init -y
+npm install soap
+
+=== run it
+node server.js
+
+ http://localhost:8000/ws/students?wsdl
+ paste in post man like this "without ?wsdl" ---> http://localhost:8000/ws/students
+
+ 

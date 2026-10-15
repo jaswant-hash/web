@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<definitions name="StudentService"
+    targetNamespace="http://example.com/students"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://example.com/students"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xsd:schema targetNamespace="http://example.com/students" elementFormDefault="qualified">
+      <xsd:element name="addStudentRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="email" type="xsd:string"/>
+            <xsd:element name="department" type="xsd:string"/>
+            <xsd:element name="year" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addStudentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="id" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="addStudentIn"><part name="parameters" element="tns:addStudentRequest"/></message>
+  <message name="addStudentOut"><part name="parameters" element="tns:addStudentResponse"/></message>
+  <portType name="StudentPort">
+    <operation name="addStudent">
+      <input message="tns:addStudentIn"/>
+      <output message="tns:addStudentOut"/>
+    </operation>
+  </portType>
+  <binding name="StudentBinding" type="tns:StudentPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addStudent">
+      <soap:operation soapAction="http://example.com/addStudent"/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+    </operation>
+  </binding>
+  <service name="StudentService">
+    <port name="StudentPort" binding="tns:StudentBinding">
+      <soap:address location="http://localhost:8000/ws/students"/>
+    </port>
+  </service>
+</definitions>

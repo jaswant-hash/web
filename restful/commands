@@ -1,0 +1,14 @@
+
+npm init -y
+npm install express
+
+
+
+est in Postman
+
+Method	URL	Body
+GET	http://localhost:3000/students	none
+GET	http://localhost:3000/students/1	none
+POST	http://localhost:3000/students	raw → JSON (below)
+PUT	http://localhost:3000/students/1	raw → JSON (below)
+DELETE	http://localhost:3000/students/2	none
